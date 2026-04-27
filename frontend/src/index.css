@@ -9,9 +9,6 @@ body {
   /* overflow-y:scroll; */
   height: 100%;
 }
-html {
-  zoom: 0.85;
-}
 
 /* NAVBAR */
 .navbar {
@@ -1616,4 +1613,203 @@ button:hover {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+}
+/* =========================
+   RESET
+========================= */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #454444;
+  color: white;
+  font-family: system-ui;
+  overflow-x: hidden;
+}
+
+/* =========================
+   GLOBAL CONTAINER
+========================= */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+}
+
+/* =========================
+   HERO SECTION (FIXED)
+========================= */
+.hero {
+  margin-top: 70px;
+  height: 80vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero h1 {
+  font-size: clamp(28px, 5vw, 40px);
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: clamp(14px, 2vw, 18px);
+}
+
+/* =========================
+   HEADER SECTION
+========================= */
+.header {
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #f4f2f2, #f1ecec);
+  color: black;
+}
+
+.header h1 {
+  font-size: 32px;
+  margin: 10px 0;
+}
+
+.header h3 {
+  font-size: 16px;
+  margin: 0;
+}
+
+/* =========================
+   GENDER SECTION (FIXED)
+========================= */
+.gender-detail {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.gender-detail h2 {
+  margin-bottom: 20px;
+}
+
+.gender-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.gender-card {
+  background: white;
+  color: black;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  width: 200px;
+}
+
+.gender-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* =========================
+   WORKOUT PLANS
+========================= */
+.workout-plans {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.workout-plans h2 {
+  margin-bottom: 15px;
+}
+
+.workout-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.workout-card {
+  background: white;
+  color: black;
+  border-radius: 12px;
+  display: flex;
+  gap: 15px;
+  padding: 10px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.workout-card img {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* =========================
+   VIDEO SECTION (FIXED)
+========================= */
+.workout-video {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 10px;
+}
+
+/* =========================
+   AI CHAT
+========================= */
+.ai-container {
+  max-width: 800px;
+  margin: 80px auto;
+  padding: 20px;
+}
+
+.chat-box {
+  background: #111;
+  height: 400px;
+  overflow-y: auto;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+
+button:hover {
+  opacity: 0.9;
 }
