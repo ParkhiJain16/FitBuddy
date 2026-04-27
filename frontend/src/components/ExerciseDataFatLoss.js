@@ -1,18 +1,18 @@
 import React from "react";
-import pvideo from "../assets/video/plank.mp4";
+// import pvideo from "../assets/video/plank.mp4";
 import pimage from "../assets/image/plank.png";
-import Bvideo from "../assets/video/burpee.mp4";
+// import Bvideo from "../assets/video/burpee.mp4";
 import Bimage from "../assets/image/burpee.png";
-import MCvideo from "../assets/video/mountain.mp4";
+// import MCvideo from "../assets/video/mountain.mp4";
 import MCimage from "../assets/image/mountain.png";
-import PUpvideo from "../assets/video/push.mp4";
+// import PUpvideo from "../assets/video/push.mp4";
 import PUpimage from "../assets/image/push.png";
-import HKvideo from "../assets/video/High.mp4";
+// import HKvideo from "../assets/video/High.mp4";
 import HKimage from "../assets/image/High.png";
 export const ExerciseDataFatLoss = {
     planks:{
         title: "Plank",
-        video: pvideo,
+        video: "",
         thumbnail: pimage,
         description: "Planks are one of the most common core exercises out there. This is a bodyweight exercise that is performed for time rather than reps. Planks don’t require any movement, instead they force you to place yourself in a position that requires you to engage your core, and maintain that muscle activation for the duration of the exercise. This is a great way to help build strength and stability in a way that will translate to a variety of other exercises, and your daily life.",
         instructions: [
@@ -38,7 +38,7 @@ export const ExerciseDataFatLoss = {
     },
     burpee:{
         title: "Burpees",
-        video: Bvideo,
+        video: "",
         thumbnail: Bimage,
         description: "Burpees are a complex series of movements that target many different muscle groups throughout the body. It’s a great exercise for getting a little bit of everything all at the same time, and can be easily adapted for your unique needs. Burpees are an incredibly versatile and effective exercise that can fit into just about any workout.",
         instructions:[
@@ -65,7 +65,7 @@ export const ExerciseDataFatLoss = {
     },
     climbers:{
         title: "Mountain Climbers",
-        video: MCvideo,
+        video: "",
         thumbnail: MCimage,
         description: "Mountain Climber is a compound movement that involves holding a high plank or push up position, and alternating bringing your legs forward toward your chest. Holding a high plank position will already recruit your core to keep your back straight. By cycling your legs, you add more instability to the movement, as well as increase the intensity of the exercise itself.",
         instructions:[
@@ -90,7 +90,7 @@ export const ExerciseDataFatLoss = {
     },
     push:{
         title: "Push Ups",
-        video: PUpvideo,
+        video: "",
         thumbnail: PUpimage,
         description:"Push Ups may be the most recognizable exercises out there. It’s one of the best bodyweight exercises you can do, and is a great way to develop functional strength in your upper body for pushing movements. It’s fantastic for beginners, or anyone with limited equipment, while still being a great addition for even the most seasoned lifters.",
         instructions:[
@@ -119,7 +119,7 @@ export const ExerciseDataFatLoss = {
     },
     highknees:{
         title: "Vertical Knee Raise",
-        video: HKvideo,
+        video: "",
         thumbnail: HKimage,
         description: "Vertical Knee Raise is a bodyweight core exercise that involves suspending yourself, and then engaging your core to raise your knees towards your chest. By keeping your torso upright, and raising your knees, this exercise is a bit better for building functional, real world strength.",
         instructions:[
