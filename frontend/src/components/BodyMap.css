@@ -1,0 +1,195 @@
+/* ─── BodyMap.css ──────────────────────────────────────────── */
+
+/* Wrapper */
+.bodymap-wrap {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+  }
+  
+  .bodymap-views {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+  }
+  
+  .bodymap-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .bodymap-view-lbl {
+    font-size: 10px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #ffffff;
+    font-weight: 500;
+  }
+  
+  /* SVG sizing — adjust width here to scale the whole figure */
+  .body-svg {
+    width: 110px;
+    height: auto;
+  }
+  
+  /* ── Silhouette base shapes ───────────────────────────────── */
+  .body-base {
+    fill: #85858b;
+    stroke: #1e1e30;
+    stroke-width: 0.7px;
+  }
+  
+  .body-joint {
+    fill: #85858b;
+    stroke: #7e7e81;
+    stroke-width: 0.5px;
+  }
+  
+  /* ── Muscle states ────────────────────────────────────────── */
+  /* .mu {
+    transition: fill 0.32s ease, opacity 0.32s ease;
+  } */
+  
+  .mu.inactive {
+    fill: #3c3c54;
+    opacity: 0.38;
+  }
+  
+  .mu.primary {
+    fill: #E8593C;
+    opacity: 1;
+    animation: bodymap-pulse 2s ease-in-out infinite;
+  }
+  
+  .mu.secondary {
+    fill: #2EBF8E;
+    opacity: 0.88;
+  }
+  .primary {
+    background: none !important;
+  }
+  /* @keyframes bodymap-pulse {
+    0%,  100% { opacity: 1;   }
+    50%        { opacity: 0.5; }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .mu.primary { animation: none; }
+  } */
+  
+  /* ── muscle-section layout (from BenchPress.jsx) ─────────── */
+  .muscle-section {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .body-map {
+    flex-shrink: 0;
+  }
+  
+  .muscle-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 160px;
+    /* padding: 16px;   */
+  }
+  
+  /* primary / secondary label blocks */
+  .primary,
+  .secondary {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 0;
+    margin:0;
+  }
+  
+  .primary h3,
+  .secondary h3 {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding:0;
+    margin:0;
+  }
+  
+  .primary p,
+  .secondary p {
+    font-size: 16px;
+    color: #783737;
+    margin: 0;
+    padding-left: 17px; 
+  }
+  .primary p,
+  .secondary p{
+    font-weight: bold;
+  }
+  
+  /* coloured dots */
+  .dot {
+    width: 10px;
+    height: 9px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: inline-block;
+  }
+  
+  .red   { background: #E8593C; }
+  .green { background: #2EBF8E; }
+  
+  /* ── Common-mistakes grid ────────────────────────────────── */
+  .mistakes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+  }
+  
+  .mistakes div {
+    background: #f2f1ed;
+    padding: 16px;
+    border-radius: 10px;
+    border: 0.5px solid rgba(0, 0, 0, 0.07);
+  }
+  
+  .mistakes div h3 {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #222;
+  }
+  
+  .mistakes div p {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  /* ── Video container ─────────────────────────────────────── */
+  .video-container {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }

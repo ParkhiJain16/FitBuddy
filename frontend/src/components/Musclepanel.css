@@ -1,0 +1,124 @@
+/* ─── Paste these into your existing workout stylesheet ─── */
+
+/* ── Muscle panel (shown below each exercise) ─────────── */
+.muscle-panel {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-top: 16px;
+  padding: 16px;
+  background: var(--color-background-secondary, #f5f4f0);
+  border-radius: 12px;
+  border: 0.5px solid var(--color-border-tertiary, rgba(0,0,0,0.1));
+}
+
+.muscle-panel__bodies {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.body-view-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.body-view-label {
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary, #999);
+}
+
+.muscle-panel__info {
+  flex: 1;
+  min-width: 140px;
+  padding-top: 4px;
+}
+
+.muscle-group__heading {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary, #999);
+  margin-bottom: 8px;
+}
+
+.muscle-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+.muscle-dot.primary   { background: #E8593C; }
+.muscle-dot.secondary { background: #2EBF8E; }
+
+.muscle-tag {
+  display: inline-block;
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin: 0 4px 5px 0;
+  font-weight: 500;
+}
+
+.muscle-tag.primary {
+  background: rgba(232, 89, 60, 0.12);
+  color: #993C1D;
+}
+
+.muscle-tag.secondary {
+  background: rgba(46, 191, 142, 0.12);
+  color: #0F6E56;
+}
+
+/* ── BodyMap SVG shapes (from BodyMap.css) ─────────────── */
+.body-base {
+  fill: #3a3a4a;
+  stroke: #2a2a38;
+  stroke-width: 0.6px;
+}
+
+.body-joint {
+  fill: #2e2e3e;
+  stroke: #1e1e2e;
+  stroke-width: 0.5px;
+}
+
+.muscle {
+  transition: fill 0.3s ease, opacity 0.3s ease;
+}
+
+.muscle.inactive {
+  fill: #4a4a5a;
+  opacity: 0.35;
+}
+
+.muscle.primary {
+  fill: #E8593C;
+  opacity: 1;
+  animation: muscle-pulse 2s ease-in-out infinite;
+}
+
+.muscle.secondary {
+  fill: #2EBF8E;
+  opacity: 0.9;
+}
+
+@keyframes muscle-pulse {
+  0%, 100% { opacity: 1;    }
+  50%       { opacity: 0.5; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .muscle.primary { animation: none; }
+}
