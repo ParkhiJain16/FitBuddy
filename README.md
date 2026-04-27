@@ -45,4 +45,4 @@ FitBuddy is a full-stack **MERN-based fitness tracking application** that helps 
 - OpenRouter API (NVIDIA Nemotron Model)
 
 # 👩‍💻 Author
-## Parkhi Jain
+### Parkhi Jain
