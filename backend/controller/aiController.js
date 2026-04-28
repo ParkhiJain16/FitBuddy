@@ -504,90 +504,6 @@
 // // //   }
 // // // };
 
-// // const axios = require("axios");
-
-// // exports.askAI = async (req, res) => {
-// //   const { question } = req.body;
-
-// //   if (!question || question.trim() === "") {
-// //     return res.status(400).json({ answer: "Question is required" });
-// //   }
-
-// //   try {
-// //     const response = await axios.post(
-// //       `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
-// //       {
-// //         contents: [{
-// //           parts: [{ 
-// //             text: `You are a professional fitness coach. Give short practical advice under 120 words. Question: ${question}` 
-// //           }]
-// //         }],
-// //         generationConfig: {
-// //           maxOutputTokens: 200,
-// //           temperature: 0.7
-// //         }
-// //       },
-// //       { timeout: 30000 }
-// //     );
-
-// //     // ✅ log the full response so you can debug in Railway logs
-// //     console.log("Gemini response:", JSON.stringify(response.data));
-
-// //     const text = response.data.candidates?.[0]?.content?.parts?.[0]?.text;
-
-// //     if (!text) {
-// //       console.error("No text in response:", JSON.stringify(response.data));
-// //       return res.json({ answer: "No response from Gemini" });
-// //     }
-
-// //     return res.json({ answer: text });
-
-// //   } catch (err) {
-// //     // ✅ print EXACT error — check Railway logs after sending a message
-// //     console.error("Gemini STATUS:", err.response?.status);
-// //     console.error("Gemini ERROR:", JSON.stringify(err.response?.data));
-// //     console.error("Gemini MESSAGE:", err.message);
-
-// //     return res.json({ 
-// //       answer: `Error ${err.response?.status}: ${err.response?.data?.error?.message || err.message}`,
-// //       fallback: true 
-// //     });
-// //   }
-// // };
-// // const axios = require("axios");
-
-// // exports.askAI = async (req, res) => {
-// //   const { question } = req.body;
-
-// //   if (!question) {
-// //     return res.status(400).json({ answer: "Question required" });
-// //   }
-
-// //   try {
-// //     const response = await axios.post(
-// //       `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
-// //       {
-// //         contents: [
-// //           {
-// //             parts: [
-// //               { text: `Give short fitness advice: ${question}` }
-// //             ]
-// //           }
-// //         ]
-// //       }
-// //     );
-
-// //     const text =
-// //       response.data.candidates?.[0]?.content?.parts?.[0]?.text;
-
-// //     res.json({ answer: text || "No response" });
-
-// //   } catch (err) {
-// //     console.error(err.response?.data || err.message);
-// //     res.status(500).json({ answer: "AI failed" });
-// //   }
-// // };
-
 // const axios = require("axios");
 
 // exports.askAI = async (req, res) => {
@@ -599,47 +515,79 @@
 
 //   try {
 //     const response = await axios.post(
-//       "https://openrouter.ai/api/v1/chat/completions",
+//       `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
 //       {
-//         model: "mistralai/mistral-7b-instruct:free",
-//         messages: [
-//           {
-//             role: "system",
-//             content: "You are a professional fitness coach. Give short advice."
-//           },
-//           {
-//             role: "user",
-//             content: question
-//           }
-//         ]
+//         contents: [{
+//           parts: [{ 
+//             text: `You are a professional fitness coach. Give short practical advice under 120 words. Question: ${question}` 
+//           }]
+//         }],
+//         generationConfig: {
+//           maxOutputTokens: 200,
+//           temperature: 0.7
+//         }
 //       },
-//       {
-//         headers: {
-//           Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
-//           "Content-Type": "application/json",
-//           "HTTP-Referer": "https://fit-buddy-blond.vercel.app",
-//           "X-Title": "FitnessBuddy"
-//         },
-//         timeout: 30000
-//       }
+//       { timeout: 30000 }
 //     );
 
-//     const text = response.data.choices?.[0]?.message?.content;
+//     // ✅ log the full response so you can debug in Railway logs
+//     console.log("Gemini response:", JSON.stringify(response.data));
 
-//     return res.json({
-//       answer: text || "No response"
-//     });
+//     const text = response.data.candidates?.[0]?.content?.parts?.[0]?.text;
+
+//     if (!text) {
+//       console.error("No text in response:", JSON.stringify(response.data));
+//       return res.json({ answer: "No response from Gemini" });
+//     }
+
+//     return res.json({ answer: text });
 
 //   } catch (err) {
-//     console.error("STATUS:", err.response?.status);
-//     console.error("ERROR:", JSON.stringify(err.response?.data));
+//     // ✅ print EXACT error — check Railway logs after sending a message
+//     console.error("Gemini STATUS:", err.response?.status);
+//     console.error("Gemini ERROR:", JSON.stringify(err.response?.data));
+//     console.error("Gemini MESSAGE:", err.message);
 
-//     return res.json({
-//       answer: `Error: ${err.response?.data?.error?.message || err.message}`,
-//       fallback: true
+//     return res.json({ 
+//       answer: `Error ${err.response?.status}: ${err.response?.data?.error?.message || err.message}`,
+//       fallback: true 
 //     });
 //   }
 // };
+// const axios = require("axios");
+
+// exports.askAI = async (req, res) => {
+//   const { question } = req.body;
+
+//   if (!question) {
+//     return res.status(400).json({ answer: "Question required" });
+//   }
+
+//   try {
+//     const response = await axios.post(
+//       `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
+//       {
+//         contents: [
+//           {
+//             parts: [
+//               { text: `Give short fitness advice: ${question}` }
+//             ]
+//           }
+//         ]
+//       }
+//     );
+
+//     const text =
+//       response.data.candidates?.[0]?.content?.parts?.[0]?.text;
+
+//     res.json({ answer: text || "No response" });
+
+//   } catch (err) {
+//     console.error(err.response?.data || err.message);
+//     res.status(500).json({ answer: "AI failed" });
+//   }
+// };
+
 const axios = require("axios");
 
 exports.askAI = async (req, res) => {
@@ -668,21 +616,73 @@ exports.askAI = async (req, res) => {
       {
         headers: {
           Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
-          "Content-Type": "application/json"
-        }
+          "Content-Type": "application/json",
+          "HTTP-Referer": "https://fit-buddy-blond.vercel.app",
+          "X-Title": "FitnessBuddy"
+        },
+        timeout: 30000
       }
     );
 
     const text = response.data.choices?.[0]?.message?.content;
 
-    return res.json({ answer: text || "No response" });
+    return res.json({
+      answer: text || "No response"
+    });
 
   } catch (err) {
-    console.error(err.response?.data || err.message);
+    console.error("STATUS:", err.response?.status);
+    console.error("ERROR:", JSON.stringify(err.response?.data));
 
     return res.json({
-      answer: "⚠️ AI failed. Try again.",
+      answer: `Error: ${err.response?.data?.error?.message || err.message}`,
       fallback: true
     });
   }
 };
+// const axios = require("axios");
+
+// exports.askAI = async (req, res) => {
+//   const { question } = req.body;
+
+//   if (!question || question.trim() === "") {
+//     return res.status(400).json({ answer: "Question is required" });
+//   }
+
+//   try {
+//     const response = await axios.post(
+//       "https://openrouter.ai/api/v1/chat/completions",
+//       {
+//         model: "mistralai/mistral-7b-instruct:free",
+//         messages: [
+//           {
+//             role: "system",
+//             content: "You are a professional fitness coach. Give short advice."
+//           },
+//           {
+//             role: "user",
+//             content: question
+//           }
+//         ]
+//       },
+//       {
+//         headers: {
+//           Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
+//           "Content-Type": "application/json"
+//         }
+//       }
+//     );
+
+//     const text = response.data.choices?.[0]?.message?.content;
+
+//     return res.json({ answer: text || "No response" });
+
+//   } catch (err) {
+//     console.error(err.response?.data || err.message);
+
+//     return res.json({
+//       answer: "⚠️ AI failed. Try again.",
+//       fallback: true
+//     });
+//   }
+// };
