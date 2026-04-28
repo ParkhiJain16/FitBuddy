@@ -480,7 +480,7 @@ exports.askAI = async (req, res) => {
           "HTTP-Referer": "https://fit-buddy-blond.vercel.app",
           "X-Title": "FitnessBuddy"
         },
-        timeout: 30000
+        timeout: 60000
       }
     );
 
