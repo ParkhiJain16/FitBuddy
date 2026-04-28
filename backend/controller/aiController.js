@@ -341,58 +341,58 @@
 // // }
 
 
-const axios = require("axios");
+// const axios = require("axios");
 
-exports.askAI = async (req, res) => {
-  const { question } = req.body;
+// exports.askAI = async (req, res) => {
+//   const { question } = req.body;
 
-  if (!question || question.trim() === "") {
-    return res.status(400).json({ answer: "Question is required" });
-  }
+//   if (!question || question.trim() === "") {
+//     return res.status(400).json({ answer: "Question is required" });
+//   }
 
-  try {
-    const response = await axios.post(
-      "https://openrouter.ai/api/v1/chat/completions",
-      {
-        model: "openchat/openchat-7b:free",
-        messages: [
-          {
-            role: "system",
-            content: "You are a professional fitness coach. Give short, practical advice."
-          },
-          {
-            role: "user",
-            content: question
-          }
-        ]
-      },
-      {
-        headers: {
-          "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
-          "Content-Type": "application/json",
-          "HTTP-Referer": "https://fit-buddy-blond.vercel.app/",  
-          "X-Title": "FitnessBuddy"
-        },
-        timeout: 20000
-      }
-    );
+//   try {
+//     const response = await axios.post(
+//       "https://openrouter.ai/api/v1/chat/completions",
+//       {
+//         model: "openchat/openchat-7b:free",
+//         messages: [
+//           {
+//             role: "system",
+//             content: "You are a professional fitness coach. Give short, practical advice."
+//           },
+//           {
+//             role: "user",
+//             content: question
+//           }
+//         ]
+//       },
+//       {
+//         headers: {
+//           "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
+//           "Content-Type": "application/json",
+//           "HTTP-Referer": "https://fit-buddy-blond.vercel.app/",  
+//           "X-Title": "FitnessBuddy"
+//         },
+//         timeout: 20000
+//       }
+//     );
 
-    const text = response.data.choices?.[0]?.message?.content;
+//     const text = response.data.choices?.[0]?.message?.content;
 
-    return res.json({
-      answer: text || "No response",
-      model: "nemotron"
-    });
+//     return res.json({
+//       answer: text || "No response",
+//       model: "nemotron"
+//     });
 
-  } catch (err) {
-    console.error("Error:", err.response?.data || err.message);
+//   } catch (err) {
+//     console.error("Error:", err.response?.data || err.message);
 
-    return res.json({
-      answer: "⚠️ AI busy. Try again.",
-      fallback: true
-    });
-  }
-};
+//     return res.json({
+//       answer: "⚠️ AI busy. Try again.",
+//       fallback: true
+//     });
+//   }
+// };
 // // const axios = require("axios");
 
 // // exports.askAI = async (req, res) => {
