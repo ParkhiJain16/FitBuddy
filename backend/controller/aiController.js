@@ -406,11 +406,11 @@ exports.askAI = async (req, res) => {
     const response = await axios.post(
       "https://openrouter.ai/api/v1/chat/completions",
       {
-        model: "nvidia/nemotron-3-super-120b-a12b:free",
+        model: "mistralai/mistral-7b-instruct:free",  
         messages: [
           {
             role: "system",
-            content: "You are a professional fitness coach. Give short, practical advice."
+            content: "You are a professional fitness coach. Give short, practical advice under 120 words."
           },
           {
             role: "user",
@@ -422,10 +422,10 @@ exports.askAI = async (req, res) => {
         headers: {
           "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
           "Content-Type": "application/json",
-          "HTTP-Referer": "https://fit-buddy-blond.vercel.app",  
+          "HTTP-Referer": "https://fit-buddy-blond.vercel.app",
           "X-Title": "FitnessBuddy"
         },
-        timeout: 20000
+        timeout: 30000
       }
     );
 
@@ -433,13 +433,15 @@ exports.askAI = async (req, res) => {
 
     return res.json({
       answer: text || "No response",
-      model: "nemotron"
     });
 
   } catch (err) {
-    console.error("Error:", err.response?.data || err.message);
+    console.error("OpenRouter error status:", err.response?.status);
+    console.error("OpenRouter error data:", JSON.stringify(err.response?.data));
+    console.error("OpenRouter error message:", err.message);
+
     return res.json({
-      answer: "⚠️ AI busy. Try again.",
+      answer: `⚠️ Error: ${err.response?.data?.error?.message || err.message}`,
       fallback: true
     });
   }
