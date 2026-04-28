@@ -341,58 +341,6 @@
 // }
 
 
-// const axios = require("axios");
-
-// exports.askAI = async (req, res) => {
-//   const { question } = req.body;
-
-//   if (!question || question.trim() === "") {
-//     return res.status(400).json({ answer: "Question is required" });
-//   }
-
-//   try {
-//     const response = await axios.post(
-//       "https://openrouter.ai/api/v1/chat/completions",
-//       {
-//         model: "nvidia/nemotron-3-super-120b-a12b:free",
-//         messages: [
-//           {
-//             role: "system",
-//             content: "You are a professional fitness coach. Give short, practical advice."
-//           },
-//           {
-//             role: "user",
-//             content: question
-//           }
-//         ]
-//       },
-//       {
-//         headers: {
-//           "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
-//           "Content-Type": "application/json",
-//           "HTTP-Referer": "https://fit-buddy-blond.vercel.app/",  
-//           "X-Title": "FitnessBuddy"
-//         },
-//         timeout: 20000
-//       }
-//     );
-
-//     const text = response.data.choices?.[0]?.message?.content;
-
-//     return res.json({
-//       answer: text || "No response",
-//       model: "nemotron"
-//     });
-
-//   } catch (err) {
-//     console.error("Error:", err.response?.data || err.message);
-
-//     return res.json({
-//       answer: "⚠️ AI busy. Try again.",
-//       fallback: true
-//     });
-//   }
-// };
 const axios = require("axios");
 
 exports.askAI = async (req, res) => {
@@ -406,11 +354,11 @@ exports.askAI = async (req, res) => {
     const response = await axios.post(
       "https://openrouter.ai/api/v1/chat/completions",
       {
-        model: "mistralai/mistral-7b-instruct:free",  
+        model: "nvidia/nemotron-3-super-120b-a12b:free",
         messages: [
           {
             role: "system",
-            content: "You are a professional fitness coach. Give short, practical advice under 120 words."
+            content: "You are a professional fitness coach. Give short, practical advice."
           },
           {
             role: "user",
@@ -422,10 +370,10 @@ exports.askAI = async (req, res) => {
         headers: {
           "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
           "Content-Type": "application/json",
-          "HTTP-Referer": "https://fit-buddy-blond.vercel.app",
+          "HTTP-Referer": "https://fit-buddy-blond.vercel.app/",  
           "X-Title": "FitnessBuddy"
         },
-        timeout: 30000
+        timeout: 20000
       }
     );
 
@@ -433,16 +381,69 @@ exports.askAI = async (req, res) => {
 
     return res.json({
       answer: text || "No response",
+      model: "nemotron"
     });
 
   } catch (err) {
-    console.error("OpenRouter error status:", err.response?.status);
-    console.error("OpenRouter error data:", JSON.stringify(err.response?.data));
-    console.error("OpenRouter error message:", err.message);
+    console.error("Error:", err.response?.data || err.message);
 
     return res.json({
-      answer: `⚠️ Error: ${err.response?.data?.error?.message || err.message}`,
+      answer: "⚠️ AI busy. Try again.",
       fallback: true
     });
   }
 };
+// const axios = require("axios");
+
+// exports.askAI = async (req, res) => {
+//   const { question } = req.body;
+
+//   if (!question || question.trim() === "") {
+//     return res.status(400).json({ answer: "Question is required" });
+//   }
+
+//   try {
+//     const response = await axios.post(
+//       "https://openrouter.ai/api/v1/chat/completions",
+//       {
+//         model: "mistralai/mistral-7b-instruct:free",  // ✅ switched to stable model
+//         messages: [
+//           {
+//             role: "system",
+//             content: "You are a professional fitness coach. Give short, practical advice under 120 words."
+//           },
+//           {
+//             role: "user",
+//             content: question
+//           }
+//         ]
+//       },
+//       {
+//         headers: {
+//           "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
+//           "Content-Type": "application/json",
+//           "HTTP-Referer": "https://fit-buddy-blond.vercel.app",
+//           "X-Title": "FitnessBuddy"
+//         },
+//         timeout: 30000
+//       }
+//     );
+
+//     const text = response.data.choices?.[0]?.message?.content;
+
+//     return res.json({
+//       answer: text || "No response",
+//     });
+
+//   } catch (err) {
+
+//     console.error("OpenRouter error status:", err.response?.status);
+//     console.error("OpenRouter error data:", JSON.stringify(err.response?.data));
+//     console.error("OpenRouter error message:", err.message);
+
+//     return res.json({
+//       answer: `⚠️ Error: ${err.response?.data?.error?.message || err.message}`,
+//       fallback: true
+//     });
+//   }
+// };
