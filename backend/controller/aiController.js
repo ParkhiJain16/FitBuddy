@@ -370,7 +370,7 @@ exports.askAI = async (req, res) => {
         headers: {
           "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
           "Content-Type": "application/json",
-          "HTTP-Referer": "http://localhost:3000",
+          "HTTP-Referer": "https://your-app.vercel.app",  
           "X-Title": "FitnessBuddy"
         },
         timeout: 20000
