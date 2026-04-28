@@ -6,9 +6,15 @@
 
 // module.exports = router;
 // aiRoutes.js
+// const router = require("express").Router();
+// const { askAI } = require("../controller/aiController");
+
+// router.post("/", askAI);  
+
+// module.exports = router;
 const router = require("express").Router();
 const { askAI } = require("../controller/aiController");
 
-router.post("/", askAI);  
+router.post("/", askAI);
 
 module.exports = router;
