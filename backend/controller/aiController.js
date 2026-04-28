@@ -447,6 +447,63 @@
 //     });
 //   }
 // };
+// const axios = require("axios");
+
+// exports.askAI = async (req, res) => {
+//   const { question } = req.body;
+
+//   if (!question || question.trim() === "") {
+//     return res.status(400).json({ answer: "Question is required" });
+//   }
+
+//   try {
+//     const response = await axios.post(
+//       "https://openrouter.ai/api/v1/chat/completions",
+//       {
+//         model: "openrouter/free",  // ✅ auto-picks any available free model
+//         // If you want nvidia specifically, keep: "nvidia/nemotron-3-super-120b-a12b:free"
+//         messages: [
+//           {
+//             role: "system",
+//             content: "You are a professional fitness coach. Give short, practical advice under 120 words."
+//           },
+//           {
+//             role: "user",
+//             content: question
+//           }
+//         ]
+//       },
+//       {
+//         headers: {
+//           "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
+//           "Content-Type": "application/json",
+//           "HTTP-Referer": "https://fit-buddy-blond.vercel.app",
+//           "X-Title": "FitnessBuddy"
+//         },
+//         timeout: 60000
+//       }
+//     );
+
+//     const text = response.data.choices?.[0]?.message?.content;
+
+//     return res.json({ answer: text || "No response" });
+
+//   } catch (err) {
+//     // This will print the EXACT error in Railway logs
+//     console.error("STATUS:", err.response?.status);
+//     console.error("ERROR:", JSON.stringify(err.response?.data));
+
+//     const status = err.response?.status;
+//     let answer = "⚠️ AI busy. Try again.";
+
+//     if (status === 429) answer = "⚠️ Daily AI limit reached (50/day). Try tomorrow.";
+//     if (status === 401) answer = "⚠️ Invalid API key. Check Railway variables.";
+//     if (status === 404) answer = "⚠️ Model not found on OpenRouter.";
+
+//     return res.json({ answer, fallback: true });
+//   }
+// };
+
 const axios = require("axios");
 
 exports.askAI = async (req, res) => {
@@ -458,48 +515,42 @@ exports.askAI = async (req, res) => {
 
   try {
     const response = await axios.post(
-      "https://openrouter.ai/api/v1/chat/completions",
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
       {
-        model: "openrouter/free",  // ✅ auto-picks any available free model
-        // If you want nvidia specifically, keep: "nvidia/nemotron-3-super-120b-a12b:free"
-        messages: [
-          {
-            role: "system",
-            content: "You are a professional fitness coach. Give short, practical advice under 120 words."
-          },
-          {
-            role: "user",
-            content: question
-          }
-        ]
+        contents: [{
+          parts: [{ 
+            text: `You are a professional fitness coach. Give short practical advice under 120 words. Question: ${question}` 
+          }]
+        }],
+        generationConfig: {
+          maxOutputTokens: 200,
+          temperature: 0.7
+        }
       },
-      {
-        headers: {
-          "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
-          "Content-Type": "application/json",
-          "HTTP-Referer": "https://fit-buddy-blond.vercel.app",
-          "X-Title": "FitnessBuddy"
-        },
-        timeout: 60000
-      }
+      { timeout: 30000 }
     );
 
-    const text = response.data.choices?.[0]?.message?.content;
+    // ✅ log the full response so you can debug in Railway logs
+    console.log("Gemini response:", JSON.stringify(response.data));
 
-    return res.json({ answer: text || "No response" });
+    const text = response.data.candidates?.[0]?.content?.parts?.[0]?.text;
+
+    if (!text) {
+      console.error("No text in response:", JSON.stringify(response.data));
+      return res.json({ answer: "No response from Gemini" });
+    }
+
+    return res.json({ answer: text });
 
   } catch (err) {
-    // This will print the EXACT error in Railway logs
-    console.error("STATUS:", err.response?.status);
-    console.error("ERROR:", JSON.stringify(err.response?.data));
+    // ✅ print EXACT error — check Railway logs after sending a message
+    console.error("Gemini STATUS:", err.response?.status);
+    console.error("Gemini ERROR:", JSON.stringify(err.response?.data));
+    console.error("Gemini MESSAGE:", err.message);
 
-    const status = err.response?.status;
-    let answer = "⚠️ AI busy. Try again.";
-
-    if (status === 429) answer = "⚠️ Daily AI limit reached (50/day). Try tomorrow.";
-    if (status === 401) answer = "⚠️ Invalid API key. Check Railway variables.";
-    if (status === 404) answer = "⚠️ Model not found on OpenRouter.";
-
-    return res.json({ answer, fallback: true });
+    return res.json({ 
+      answer: `Error ${err.response?.status}: ${err.response?.data?.error?.message || err.message}`,
+      fallback: true 
+    });
   }
 };
