@@ -48,7 +48,7 @@ import React from 'react'
 export const ExerciseData={
     benchPress: {
         title: "Flat Dumbbell Bench Press",
-        video: "",
+        video: "/video/BP.mp4",
         thumbnail: BPimage,
         description: "Dumbbell Bench Press is a variation on the standard Bench Press. Like Bench Press, this compound exercise primarily targets the chest, while also training the triceps and shoulders. The use of dumbbells allows for greater instability which can help you become more stable on pushing movements in general, while also isolating each side of the body to prevent you from compensating for any weaknesses between sides.",
         instructions:[
@@ -83,7 +83,7 @@ export const ExerciseData={
     },
     overHeadPress:{
         title: "Tricep OverHead Extention with Rope",
-        video: "",
+        video: "/video/OHP.mp4",
         thumbnail: OHPimage,
         description: 'Similar to other tricep extensions, this is an isolation exercise that targets the triceps. The use of a cable machine gives you more control over where the resistance is coming from, and allows for more consistent tension in your triceps than other equipment like free weights or machines. By performing the movement overhead, you ensure that you’re taking your triceps through their full range of motion by getting a good stretch as you return towards the starting position.',
         instructions:[
@@ -114,7 +114,7 @@ export const ExerciseData={
     },
     inclineBench:{
         title: "Incline Dumbbell BenchPress",
-        video: "",
+        video: "/video/IBP.mp4",
         thumbnail: BPimage,
         description: 'Dumbbell Incline Bench Press is a variation on the more standard Barbell Incline Bench Press. This compound exercise primarily targets the chest, but the incline also places more emphasis on the shoulders. The use of dumbbells makes this exercise more unstable than its barbell counterpart, while also forcing you to address any strength discrepancies between sides.',
         instructions:[
@@ -146,7 +146,7 @@ export const ExerciseData={
     },
     lateralRaises:{
         title: "Dumbbell Lateral Raises",
-        video: "",
+        video: "/video/LR.mp4",
         thumbnail: LRimage,
         description: 'Dumbbell Lateral Raise is a classic isolation exercise and one of the most effective movements for building shoulder width. Similar to the cable variation, it primarily targets the shoulders—specifically the medial deltoid (middle head of the shoulder). Using dumbbells allows for a more natural range of motion, but unlike cables, the resistance is not constant, making the top portion of the movement more challenging. Additionally, because each arm works independently, dumbbell lateral raises help improve coordination and reveal strength imbalances between sides, while also requiring greater control and stability throughout the movement.',
         instructions:[
@@ -187,7 +187,7 @@ export const ExerciseData={
     },
     tricepPushDown:{
         title: "Cable Rope Tricep PushDown",
-        video: "",
+        video: "/video/TPD.mp4",
         thumbnail: TPDimage,
         description: 'This is an isolation triceps exercise. The use of cables gives you more control over where the resistance is coming from, allowing you to keep more tension in your triceps compared to equipment like dumbbells. Because you can easily adjust the weight on a cable machine this is also a great exercise for performing drop sets, and burning out your triceps.',
         instructions:[
@@ -215,7 +215,7 @@ export const ExerciseData={
     },
     barbelRow:{
         title: "Bent Over Barbell Row",
-        video: "",
+        video: "/video/BR.mp4",
         thumbnail: BRimage,
         description: 'Bent Over Barbell row is a compound movement that primarily targets your back, but also hits your shoulders, traps, and biceps. The use of a barbell adds more stability to this movement compared to something like dumbbells which can help you focus on exerting strength rather than stabilizing the movement. It’s a great exercise for building strength, and can be a way to start learning more advanced exercises like Olympic Lifts.',
         instructions:[
@@ -247,7 +247,7 @@ export const ExerciseData={
     },
     pullUps:{
         title: "Pull Up",
-        video: "",
+        video: "/video/PU.mp4",
         thumbnail: PUimage,
         description: 'Pull Ups are compound, bodyweight exercise that primarily target the back, but also hits the shoulders and biceps. While this exercise does have a decently high barrier to entry, it can be easily adapted to match your current conditioning with weighted or assisted variations. This is an excellent exercise for building functional strength and body control.',
         instructions:[
@@ -282,7 +282,7 @@ export const ExerciseData={
     },
     SCR:{
         title: "Seated Cable Row",
-        video: "",
+        video: "/video/SCR.mp4",
         thumbnail: SCRimage,
         description: 'Cable Row is a compound movement that primarily targets your back, but also hits your shoulders and biceps. This exercise is often done with a specific cable machine that sets you into the perfect position, but you can also use an adjustable cable to have more control over the direction your resistance is coming from. This is a great exercise for building muscle mass and strength in your back, and is a common addition to most upper body or pull workouts.',
         instructions:[
@@ -315,7 +315,7 @@ export const ExerciseData={
     },
     barbell:{
         title: "Barbell Curl",
-        video: "",
+        video: "/video/BC.mp4",
         thumbnail: BCimage,
         description: 'As with other curls, this isolation exercise targets the biceps. The use of a barbell adds more stability to this movement, and somewhat restricts your range of motion. This added stability means you can focus more on exertion than stabilizing the movement. This is a great variation for helping you build strength in your biceps.',
         instructions:[
@@ -346,7 +346,7 @@ export const ExerciseData={
     },
     backSquats:{
         title: "Back Squats",
-        video: "",
+        video: "/video/BS.mp4",
         thumbnail: BSimage,
         description: 'Back Squat is one of the three Powerlifting movements, and one of the most common lower body exercises. It’s a great compound exercise that can help build strength and muscle mass in your leg, especially your quadriceps. It’s a staple in most fitness programs, and is often used as a metric for tracking lower body strength in general.',
         instructions:[
@@ -380,7 +380,7 @@ export const ExerciseData={
     },
     rdl:{
         title: "Romanian DeadLift",
-        video: "",
+        video: "/video/RDL.mp4",
         thumbnail: RDLimage,
         description: 'Romanian Deadlift is a variation on the more standard Deadlift. It’s a compound exercise that primarily targets your glutes, and hamstrings. Unlike the standard Deadlift, this variation focuses mostly on driving your hips forward to raise the weight, and restricts movement in your knees. This is a great exercise for building strength, and can translate well to other exercises that utilize a hip hinge.',
         instructions:[
@@ -412,7 +412,7 @@ export const ExerciseData={
     },
     legpress:{
         title: "Leg Press",
-        video: "",
+        video: "/video/LP.mp4",
         thumbnail: LPimage,
         description: 'Leg Press is a compound exercise that primarily targets the quadriceps. The exercise itself is fairly similar to a standard squat, with some key differences. The biggest of these differences is the added stability from supporting your back on the Leg Press Machine. The end result of these changes is a more stable movement that further emphasizes your quadriceps. Leg Press is an excellent exercise for anyone looking to build muscle mass or strength in their quads.',
         instructions:[
@@ -444,7 +444,7 @@ export const ExerciseData={
     },
     wl:{
         title: "Walking Dumbbell Lunges",
-        video: "",
+        video: "/video/WL.mp4",
         thumbnail: WLimage,
         description: 'Dumbbell Lunge is a variation on the more standard Lunge. Similar to other Lunge variations, Dumbbell Lunge is a compound exercise that primarily targets the quads. The exercise itself is the same as a standard lunge except for the added weight from holding dumbbells in each hand. This is a great variation for anyone looking to make their lunges a bit more challenging without adding more complexity to the movement.',
         instructions:[
@@ -480,7 +480,7 @@ export const ExerciseData={
     },
     cr:{
         title: "Calf Raises",
-        video: "",
+        video: "/video/CL.mp4",
         thumbnail: CLimage,
         description: 'This bodyweight isolation exercise primarily targets the calves. It’s an effective exercise for developing muscle mass and increasing strength in your calf, and can be easily modified through a number of different variations.',
         instructions:[
@@ -514,7 +514,7 @@ export const ExerciseData={
     },
     shoulderpress:{
         title: "Dumbbell Shoulder Press",
-        video: "",
+        video: "/video/SP.mp4",
         thumbnail: SPimage,
         description: 'Dumbbell Shoulder Press is a compound exercise that primarily targets the shoulders. The use of dumbbells allows for slightly more instability than with equipment like barbells. This can help you recruit and develop stabilizing muscles around the shoulders. In addition, by using dumbbells, you can help identify and address any strength imbalances between sides.',
         instructions:[
@@ -544,7 +544,7 @@ export const ExerciseData={
     },
     cablecrossover:{
         title: "Cable Crossover Fly",
-        video: "",
+        video: "/video/CF.mp4",
         thumbnail: CF,
         description: 'Cable Crossover Fly is an isolation exercise that targets the chest. It’s a variation on the more standard Dumbbell Fly, and can easily be adapted to further isolate specific areas of the chest. Using cables to add resistance allows you to keep more consistent tension on your chest, as well as control the angle that the resistance is coming from.',
         instructions:[
@@ -571,7 +571,7 @@ export const ExerciseData={
     },
     skullcrusher:{
         title: "Skull Crusher",
-        video: "",
+        video: "/video/SC.mp4",
         thumbnail: SC,
         description: 'Skullcrushers are an isolation exercise that targets the triceps. By laying back on a bench, you prevent yourself from swaying or leaning into the movement in order to help you move the weight. An EZ-Bar helps you find a comfortable grip, while still adding stability to the movement similar to a barbell variation.',
         instructions:[
@@ -603,7 +603,7 @@ export const ExerciseData={
     },
     legextention:{
         title: "Leg Extention",
-        video: "",
+        video: "/video/LE.mp4",
         thumbnail: LEimage,
         description: "Leg Extensions are an isolation exercise that target the quads. Due to a severe lack of isolation movements for the lower body, this is a great option for specifically targeting your quadriceps. The use of a machine restricts your range of motion, and adds some stability to the movement. This can help your focus more on exertion than stabilizing the movement. The downside to this exercise is that it places a lot of tension on your knee. Keep your weights light, and focus on pausing near the end of your range of motion.",
         instructions:[
@@ -630,7 +630,7 @@ export const ExerciseData={
     },
     latpulldown:{
         title: "Lat PullDown",
-        video: "",
+        video: "/video/LP.mp4",
         thumbnail: LPD,
         description: "This compound exercise primarily targets the back, but also hits the shoulders and biceps. The movement itself is based on a Pull Up, however, by locking your legs into place, you can add significantly more stability to the movement making it easier to complete a rep, as well as getting control over the resistance. This exercise can be easily adapted to meet your needs with different handles.",
         instructions:[
@@ -661,7 +661,7 @@ export const ExerciseData={
     },
     hammercurl:{
         title: "Hammer Curl",
-        video: "",
+        video: "/video/HC.mp4",
         thumbnail: HC,
         description: "Similar to other curls, this isolation exercise targets the biceps. Unlike the standard Dumbbell Bicep Curl, this variation rotates your wrist into a more natural position. This rotation also help to emphasize the long head of the bicep. This is a great exercise for adding some variety to your curls as well as developing functional strength and building muscle mass.",
         instructions:[
