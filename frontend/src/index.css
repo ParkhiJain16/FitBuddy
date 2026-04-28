@@ -25,81 +25,90 @@
   /* ===========================
      NAVBAR
      =========================== */
-  .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    padding: 8px 15px 10px 15px;
-    display: flex;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    z-index: 1000;
-  }
-  
-  .nav-title {
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: white;
-  }
-  
-  .nav-links {
-    display: flex;
-    gap: 25px;
-  }
-  
-  .nav-link {
-    position: relative;
-    text-decoration: none;
-    color: #bbb;
-    font-size: 15px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-  }
-  
-  .nav-link:hover {
-    color: white;
-  }
-  
-  .nav-link::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    width: 0%;
-    height: 2px;
-    background: red;
-    transition: width 0.3s ease;
-  }
-  
-  .nav-link:hover::after,
-  .nav-link.active::after {
-    width: 100%;
-  }
-  
-  .nav-link.active {
-    color: white;
-  }
-  
-  .btn-primary {
-    padding: 8px 18px;
-    border-radius: 20px;
-    border: none;
-    background: linear-gradient(135deg, #ff4d4d, #ff0000);
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-right: 30px;
-  }
-  
-  .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
-  }
+  /* ===========================
+   NAVBAR
+   =========================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  padding: 8px 30px 10px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;  /* title left, links center, button right */
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+}
+
+.nav-title {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: white;
+  flex: 1;                /* takes left space */
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+  position: absolute;     /* center it perfectly */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-link {
+  position: relative;
+  text-decoration: none;
+  color: #bbb;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background: red;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link.active {
+  color: white;
+}
+
+.btn-primary {
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: none;
+  background: linear-gradient(135deg, #ff4d4d, #ff0000);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: auto;      /* pushes button to far right */
+  margin-right: 10px;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+}
   
   /* ===========================
      DRAWER & OVERLAY
