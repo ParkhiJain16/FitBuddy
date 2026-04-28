@@ -601,11 +601,11 @@ exports.askAI = async (req, res) => {
     const response = await axios.post(
       "https://openrouter.ai/api/v1/chat/completions",
       {
-        model: "openrouter/auto",
+        model: "mistralai/mistral-7b-instruct:free",
         messages: [
           {
             role: "system",
-            content: "You are a professional fitness coach. Give short, practical advice."
+            content: "You are a professional fitness coach. Give short advice."
           },
           {
             role: "user",
@@ -616,7 +616,9 @@ exports.askAI = async (req, res) => {
       {
         headers: {
           Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "HTTP-Referer": "https://fit-buddy-blond.vercel.app",
+          "X-Title": "FitnessBuddy"
         },
         timeout: 30000
       }
@@ -625,15 +627,15 @@ exports.askAI = async (req, res) => {
     const text = response.data.choices?.[0]?.message?.content;
 
     return res.json({
-      answer: text || "⚠️ No response from AI",
-      model: "mistral"
+      answer: text || "No response"
     });
 
   } catch (err) {
-    console.error("AI ERROR:", err.response?.data || err.message);
+    console.error("STATUS:", err.response?.status);
+    console.error("ERROR:", JSON.stringify(err.response?.data));
 
     return res.json({
-      answer: "⚠️ Experiencing high demand. Try again in a few seconds.",
+      answer: `Error: ${err.response?.data?.error?.message || err.message}`,
       fallback: true
     });
   }
