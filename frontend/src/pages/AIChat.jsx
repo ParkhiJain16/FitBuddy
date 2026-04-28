@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { API_URL } from "../config";
 
 const AIChat = () => {
   const [question, setQuestion] = useState("");
@@ -20,7 +21,7 @@ const AIChat = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/ai",
+        `${API_URL}/api/ai`,  
         { question },
         {
           headers: { Authorization: `Bearer ${token}` }
@@ -39,7 +40,9 @@ const AIChat = () => {
 
       let errorMsg = "Something went wrong";
 
-      if (err.response?.status === 429) {
+      if (err.response?.status === 401) {
+        errorMsg = "⚠️ Please log in to use the AI.";  
+      } else if (err.response?.status === 429) {
         errorMsg = "⚠️ AI limit reached. Try later.";
       } else if (err.response?.status === 503) {
         errorMsg = "⏳ AI is busy. Try again.";
@@ -57,7 +60,6 @@ const AIChat = () => {
 
   return (
     <div className="ai-container">
-
       <h2>AI Fitness Assistant</h2>
 
       <div className="chat-box">
@@ -71,9 +73,7 @@ const AIChat = () => {
         ))}
 
         {loading && (
-          <div className="message ai">
-            Typing...
-          </div>
+          <div className="message ai">Typing...</div>
         )}
       </div>
 
@@ -85,12 +85,10 @@ const AIChat = () => {
           onChange={(e) => setQuestion(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && askAI()}
         />
-
         <button onClick={askAI} disabled={loading}>
           {loading ? "..." : "Send"}
         </button>
       </div>
-
     </div>
   );
 };
