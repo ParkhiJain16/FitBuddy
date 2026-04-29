@@ -118,10 +118,7 @@ const AIChat = () => {
     try {
       const res = await axios.post(
         `${API_URL}/api/ai`,
-        { question },
-        {
-          headers: { Authorization: `Bearer ${token}` }
-        }
+        { question }
       );
 
       const aiMessage = {
