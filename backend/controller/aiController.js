@@ -692,7 +692,7 @@ exports.askAI = async (req, res) => {
     const response = await axios.post(
       "https://openrouter.ai/api/v1/chat/completions",
       {
-        model: "google/gemma-4-31b-it:free",
+        model: "openchat/openchat-7b:free",
         messages: [
           {
             role: "system",
