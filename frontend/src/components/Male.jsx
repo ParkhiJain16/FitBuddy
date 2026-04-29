@@ -187,44 +187,7 @@ const Male = () => {
                   <p>Level: Beginner–Intermediate</p>
                   <p>Duration: 30–45 mins</p>
                 </div>
-            </div>  
-            {/* <div className = "workout-card">
-                <img src = "https://images.pexels.com/photos/16695681/pexels-photo-16695681.jpeg?_gl=1*11u17hl*_ga*MTQ1MjYwNDA0Ni4xNzc0NzExNDQ0*_ga_8JE65Q40S6*czE3NzQ5NTY4OTUkbzgkZzEkdDE3NzQ5NTcwNDckajQ1JGwwJGgw"></img>
-                <div className='card-info'>
-                  <h2>Light Resistance Training</h2>
-                  <p>Full Body • Low Weights</p>
-                  <p>Level: Advance</p>
-                  <p>Duration: 25–40 mins</p>
-                </div>
-            </div>   */}
-            {/* <div className = "workout-card">
-                <img src = "https://images.pexels.com/photos/209983/pexels-photo-209983.jpeg?_gl=1*1ww4vn2*_ga*MTQ1MjYwNDA0Ni4xNzc0NzExNDQ0*_ga_8JE65Q40S6*czE3NzQ5NTY4OTUkbzgkZzEkdDE3NzQ5NTY5NjIkajU5JGwwJGgw"></img>
-                <div className='card-info'>
-                  <h2>Core Strength Workout</h2>
-                  <p>Abs • Lower Back • Stability</p>
-                  <p>Level: All Levels</p>
-                  <p>Duration: 20–30 mins</p>
-                </div>
-            </div>  
-            <div className = "workout-card">
-                <img src = "https://images.pexels.com/photos/8436159/pexels-photo-8436159.jpeg?_gl=1*17pge6m*_ga*MTQ1MjYwNDA0Ni4xNzc0NzExNDQ0*_ga_8JE65Q40S6*czE3NzQ5NTY4OTUkbzgkZzEkdDE3NzQ5NTg2MzQkajIzJGwwJGgw"></img>
-                <div className='card-info'>
-                  <h2>Full Body Workout</h2>
-                  <p>Upper + Lower Body</p>
-                  <p>Level: Advanced</p>
-                  <p>Duration: 40–60 mins</p>
-                </div>
-            </div>   */}
-            {/* <div className = "workout-card">
-                <img src = "https://images.pexels.com/photos/9602276/pexels-photo-9602276.jpeg?_gl=1*gt6v1p*_ga*MTQ1MjYwNDA0Ni4xNzc0NzExNDQ0*_ga_8JE65Q40S6*czE3NzQ5NTY4OTUkbzgkZzEkdDE3NzQ5NTcyMDQkajQ2JGwwJGgw"></img>
-                <div className='card-info'>
-                  <h2>Powerlifting Routine</h2>
-                  <p>Squat • Bench • Deadlift</p>
-                  <p>Level: Advanced</p>
-                  <p>Duration: 60–90 mins</p>
-                </div>
-            </div>   */}
-            
+            </div> 
           </div>
         )}
 
