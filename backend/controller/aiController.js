@@ -832,7 +832,7 @@ exports.askAI = async (req, res) => {
 
   try {
     const response = await axios.post(
-      "https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash-latest:generateContent",
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.0-pro:generateContent",
       {
         contents: [
           {
@@ -847,9 +847,6 @@ exports.askAI = async (req, res) => {
       {
         params: {
           key: process.env.GEMINI_API_KEY
-        },
-        headers: {
-          "Content-Type": "application/json"
         }
       }
     );
@@ -864,7 +861,7 @@ exports.askAI = async (req, res) => {
     console.error("❌ GEMINI ERROR:", JSON.stringify(err.response?.data));
 
     return res.status(500).json({
-      error: err.response?.data?.error?.message || "Gemini failed"
+      error: err.response?.data?.error?.message || err.message
     });
   }
 };
