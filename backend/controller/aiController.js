@@ -832,7 +832,7 @@ exports.askAI = async (req, res) => {
 
   try {
     const response = await axios.post(
-      "https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent",
+      "https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash-latest:generateContent",
       {
         contents: [
           {
@@ -850,8 +850,7 @@ exports.askAI = async (req, res) => {
         },
         headers: {
           "Content-Type": "application/json"
-        },
-        timeout: 30000
+        }
       }
     );
 
