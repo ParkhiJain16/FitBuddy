@@ -770,6 +770,57 @@
 // };
 
 
+// const axios = require("axios");
+
+// exports.askAI = async (req, res) => {
+//   const { question } = req.body;
+
+//   if (!question || question.trim() === "") {
+//     return res.status(400).json({ error: "Question required" });
+//   }
+
+//   try {
+//     const response = await axios.post(
+//       "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
+//       {
+//         contents: [
+//           {
+//             parts: [
+//               {
+//                 text: `You are a fitness coach. Give short practical advice.\n\nQuestion: ${question}`
+//               }
+//             ]
+//           }
+//         ]
+//       },
+//       {
+//         params: {
+//           key: process.env.GEMINI_API_KEY
+//         },
+//         headers: {
+//           "Content-Type": "application/json"
+//         },
+//         timeout: 30000
+//       }
+//     );
+
+//     console.log("✅ Gemini response:", JSON.stringify(response.data));
+
+//     const text =
+//       response.data?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+//     return res.json({ answer: text || "No response" });
+
+//   } catch (err) {
+//     console.error("❌ GEMINI STATUS:", err.response?.status);
+//     console.error("❌ GEMINI ERROR:", JSON.stringify(err.response?.data));
+//     console.error("❌ GEMINI MESSAGE:", err.message);
+
+//     return res.status(500).json({
+//       error: err.response?.data?.error?.message || err.message
+//     });
+//   }
+// };
 const axios = require("axios");
 
 exports.askAI = async (req, res) => {
@@ -781,7 +832,7 @@ exports.askAI = async (req, res) => {
 
   try {
     const response = await axios.post(
-      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
+      "https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent",
       {
         contents: [
           {
@@ -804,8 +855,6 @@ exports.askAI = async (req, res) => {
       }
     );
 
-    console.log("✅ Gemini response:", JSON.stringify(response.data));
-
     const text =
       response.data?.candidates?.[0]?.content?.parts?.[0]?.text;
 
@@ -814,10 +863,9 @@ exports.askAI = async (req, res) => {
   } catch (err) {
     console.error("❌ GEMINI STATUS:", err.response?.status);
     console.error("❌ GEMINI ERROR:", JSON.stringify(err.response?.data));
-    console.error("❌ GEMINI MESSAGE:", err.message);
 
     return res.status(500).json({
-      error: err.response?.data?.error?.message || err.message
+      error: err.response?.data?.error?.message || "Gemini failed"
     });
   }
 };
