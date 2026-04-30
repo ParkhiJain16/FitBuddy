@@ -1651,11 +1651,11 @@ button:hover {
 
 /* Hidden on desktop */
 .hamburger {
-  display: none;
+  display: flex !important;
   flex-direction: column;
   justify-content: center;
   gap: 5px;
-  background: transparent;
+  background: red;
   border: none;
   cursor: pointer;
   padding: 6px;
