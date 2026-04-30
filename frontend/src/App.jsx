@@ -37,6 +37,7 @@ import Mountain from "./components/workouts/FatLoss/mountain.jsx";
 import PushUps from "./components/workouts/FatLoss/Push.jsx";
 import High from "./components/workouts/FatLoss/high.jsx";
 // import MyPlan from "./components/MyPlan.jsx";
+import ProtectedRoute from "./components/ProtectedRoute";
 import MyPlan from "./pages/myplan/myplan.jsx";
 import CreatePlan from "./pages/myplan/CreatePlan";
 import LogWorkout from "./pages/myplan/LogWorkout";
@@ -99,9 +100,11 @@ function App() {
         <Route path="/ai" element={<AIChat />} />
         <Route path="/workout" element={<Workout />} />
         {/* <Route path="/myplan" element={<MyPlan />} /> */}
-        <Route path = "/my-plan" element = {<MyPlan />} />
-        <Route path="/my-plan/create" element={<CreatePlan />} />
-        <Route path="/my-plan/log" element={<LogWorkout />} />
+        {/* <Route path = "/my-plan" element = {<MyPlan />} /> */}
+        <Route path="/my-plan" element={<ProtectedRoute><MyPlan /></ProtectedRoute>} />
+        {/* <Route path="/my-plan/create" element={<CreatePlan />} /> */}
+        <Route path="/my-plan/create" element={<ProtectedRoute><CreatePlan /></ProtectedRoute>} />
+        <Route path="/my-plan/log" element={<ProtectedRoute><LogWorkout /></ProtectedRoute>} />
         <Route path="/male" element={<Male />} />
         <Route path = "/women" element={<Female />} />
         <Route path="/PushPullLegs" element={<PushPullLegs />} />
@@ -118,7 +121,7 @@ function App() {
         <Route path = "/scr" element={<SCR />} />
         <Route path = "/barbell" element={<Barbell />} />
         <Route path = "/backsquats" element = {<BackSquats />} />
-        <Route path = "legpress" element={<LegPress />} />
+        <Route path = "/legpress" element={<LegPress />} />
         <Route path= "/Cr" element = {<Cr />} />
         <Route path = "/WalkLunges" element={<WL />} />
         <Route path= "/rdl" element={<RDL />} />
