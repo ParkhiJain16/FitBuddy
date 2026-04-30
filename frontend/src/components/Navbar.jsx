@@ -16,13 +16,22 @@ function Navbar() {
     { to: "/ai", label: "AI ChatBot" },
   ];
 
-  // 🔥 handle protected navigation
   const handleNavClick = (link, e) => {
     if (link.protected && !token) {
-      e.preventDefault(); // stop navigation
-      setAuthOpen(true);  // open login instead
+      e.preventDefault();
+      setAuthOpen(true);
       setMenuOpen(false);
     }
+  };
+
+  // 🔥 LOGOUT FUNCTION
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+
+    // optional: clear cache
+    sessionStorage.clear();
+
+    window.location.reload(); // simplest way to refresh UI
   };
 
   return (
@@ -49,12 +58,21 @@ function Navbar() {
 
         {/* Right */}
         <div className="nav-right">
-          <button
-            className="btn-primary"
-            onClick={() => setAuthOpen(true)}
-          >
-            Sign In
-          </button>
+          {!token ? (
+            <button
+              className="btn-primary"
+              onClick={() => setAuthOpen(true)}
+            >
+              Sign In
+            </button>
+          ) : (
+            <button
+              className="btn-primary"
+              onClick={handleLogout}
+            >
+              Logout
+            </button>
+          )}
 
           <button
             className="hamburger"
@@ -91,16 +109,26 @@ function Navbar() {
               </Link>
             ))}
 
-            <button
-              className="submit-btn"
-              style={{ marginTop: "20px" }}
-              onClick={() => {
-                setMenuOpen(false);
-                setAuthOpen(true);
-              }}
-            >
-              Sign In
-            </button>
+            {!token ? (
+              <button
+                className="submit-btn"
+                style={{ marginTop: "20px" }}
+                onClick={() => {
+                  setMenuOpen(false);
+                  setAuthOpen(true);
+                }}
+              >
+                Sign In
+              </button>
+            ) : (
+              <button
+                className="submit-btn"
+                style={{ marginTop: "20px" }}
+                onClick={handleLogout}
+              >
+                Logout
+              </button>
+            )}
           </div>
 
           <div
