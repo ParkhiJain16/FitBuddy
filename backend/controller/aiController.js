@@ -832,7 +832,7 @@ exports.askAI = async (req, res) => {
 
   try {
     const response = await axios.post(
-      "https://generativelanguage.googleapis.com/v1beta/models/gemma-3n-e2b-it:generateContent",
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent",
       {
         contents: [
           {
